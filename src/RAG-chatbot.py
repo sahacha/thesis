@@ -6,12 +6,22 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from dotenv import load_dotenv
 
 # Set page config
 st.set_page_config(page_title="เที่ยวเชียงใหม่ AI", layout="wide")
 
-# Use a pre-defined API key (in production, consider more secure methods)
-groq_api_key = "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" 
+# Load API key from .env file
+
+# Load environment variables
+load_dotenv()
+
+# Retrieve the API key from the environment variable
+groq_api_key = os.getenv("GROQ_API_KEY")
+
+# Check if the API key is loaded
+if not groq_api_key:
+    st.error("API key not found. Please set GROQ_API_KEY in your .env file.")
 
 # Sidebar
 with st.sidebar:
