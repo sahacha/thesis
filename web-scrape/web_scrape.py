@@ -18,8 +18,11 @@ if not openai_api_key:
 # ขั้นตอนที่ 1: Scrape ข้อมูลจากเว็บ
 def scrape_chiangmai_data(url):
     try:
-        # ส่ง HTTP Request ไปยัง URL
-        response = requests.get(url)
+        # ส่ง HTTP Request ไปยัง URL พร้อม USER_AGENT header
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
         response.raise_for_status()  # ตรวจสอบว่า Request สำเร็จ
         soup = BeautifulSoup(response.content, 'html.parser')
 

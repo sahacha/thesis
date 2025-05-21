@@ -11,7 +11,7 @@ __pycache__/
 *.so
 index
 index/
-
+ref-repo/
 # Distribution / packaging
 .Python
 build/
