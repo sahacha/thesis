@@ -6,12 +6,13 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.env
 # C extensions
 *.so
 index
 index/
 ref-repo/
+ref/
 # Distribution / packaging
 .Python
 build/
